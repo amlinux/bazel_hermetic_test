@@ -4,6 +4,8 @@ def _bar_impl(ctx):
         outputs = [ctx.outputs.out],
         inputs = ctx.files._foo_bin,
         executable = ctx.executable._foo_bin,
+        arguments = [ctx.outputs.out.path],
+        execution_requirements = {"local": "1"},
     )
 
 
